@@ -50,12 +50,12 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
    private final double transferTime = 0.2;
    private final double finalTransferTime = 1.0;
 
-   private final double forcePercentageOfWeight1 = 0.025;
+   private final double forceMagnitude1 = 40;
    private final double forceDuration1 = 1;
    private final double forceDelay1 = 0.1 * swingTime;
    private final Vector3D forceDirection1 = new Vector3D(0.0, -1.0, 0.0);
 
-   private final double forcePercentageOfWeight2 = 0.025;
+   private final double forceMagnitude2 = 50;
    private final double forceDuration2 = 1;
    private final double forceDelay2 = 0.5 * swingTime;
    private final Vector3D forceDirection2 = new Vector3D(1.0, 0.0, 0.0);
@@ -111,9 +111,9 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
    }
 
    @Override
-   public double getForcePercentageOfWeight1()
+   public double getForceMagnitude1()
    {
-      return forcePercentageOfWeight1;
+      return forceMagnitude1;
    }
 
    @Override
@@ -135,9 +135,9 @@ public class AtlasFlatGroundForwardWalkingTest extends AvatarFlatGroundForwardWa
    }
 
    @Override
-   public double getForcePercentageOfWeight2()
+   public double getForceMagnitude2()
    {
-      return forcePercentageOfWeight2;
+      return forceMagnitude2;
    }
 
    @Override

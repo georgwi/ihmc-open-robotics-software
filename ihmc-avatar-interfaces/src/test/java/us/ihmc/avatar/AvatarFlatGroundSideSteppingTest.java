@@ -89,7 +89,7 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       return 0.5 * robotModel.getWalkingControllerParameters().getDefaultSwingTime();
    }
 
-   protected double getForcePercentageOfWeight1()
+   protected double getForceMagnitude1()
    {
       return 0.13;
    }
@@ -109,7 +109,7 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       return 2.5 * robotModel.getWalkingControllerParameters().getDefaultSwingTime();
    }
 
-   protected double getForcePercentageOfWeight2()
+   protected double getForceMagnitude2()
    {
       return 0.13;
    }
@@ -211,13 +211,13 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
       success = drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(2.0);
       assertTrue(success);
 
-      magnitude1 = 90; //TODO: overwritten
+      magnitude1 = getForceMagnitude1();
       PrintTools.info("Force magnitude = " + magnitude1 + "N along " + forceDirection1.toString());
       pushRobotController.applyForceDelayed(firstPushCondition, delay1, forceDirection1, magnitude1, duration1);
       success = drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(2.0);
       assertTrue(success);
 
-      magnitude2 = 90; //TODO:overwritten
+      magnitude2 = getForceMagnitude2();
       PrintTools.info("Force magnitude = " + magnitude2 + "N along " + forceDirection2.toString());
       pushRobotController.applyForceDelayed(secondPushCondition, delay2, forceDirection2, magnitude2, duration2);
       success = drcSimulationTestHelper.simulateAndBlockAndCatchExceptions(2.0);
@@ -307,13 +307,13 @@ public abstract class AvatarFlatGroundSideSteppingTest implements MultiRobotTest
 
       delay1 = getForceDelay1();
       duration1 = getForceDuration1();
-      percentWeight1 = getForcePercentageOfWeight1();
+      percentWeight1 = getForceMagnitude1();
       magnitude1 = percentWeight1 * totalMass * GRAVITY;
       forceDirection1 = getForceDirection1();
 
       delay2 = getForceDelay2();
       duration2 = getForceDuration2();
-      percentWeight2 = getForcePercentageOfWeight2();
+      percentWeight2 = getForceMagnitude2();
       magnitude2 = percentWeight2 * totalMass * GRAVITY;
       forceDirection2 = getForceDirection2();
 
